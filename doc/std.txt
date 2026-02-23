@@ -1,0 +1,47 @@
+*status-std.txt* Standard component sources for status.nvim  Last Change: 2026-02-23
+
+==============================================================================
+INTRODUCTION                                                *status-std*
+
+This is the standard collection of component sources for status.nvim.
+Each function is designed to be used within the `components` table of
+`status.setup()`.
+
+==============================================================================
+
+SOURCES                                               *status-std-sources*
+
+std.mode()                                                *status-std.mode()*
+    Returns the current mode with a highlight group.
+    The highlight group is generated as "Status" + ModeName (e.g., StatusNORMAL).
+    It resets the highlight to "%#StatusMain#" at the end.
+
+std.file()                                                *status-std.file()*
+    Returns the current buffer's filename (tail) with a modification flag "[+]".
+
+std.filetype()                                        *status-std.filetype()*
+    Returns the 'filetype' of the current buffer.
+
+std.encoding()                                        *status-std.encoding()*
+    Returns the file encoding (or global encoding if not set).
+
+std.filesize()                                        *status-std.filesize()*
+    Returns the human-readable file size (B, KB, MB, GB).
+    Returns an empty string if the file does not exist or is empty.
+
+==============================================================================
+
+HIGHLIGHTS                                           *status-std-highlights*
+
+The `std.mode()` function expects highlight groups for each mode.
+Example for your init.lua:
+
+>lua
+    vim.api.nvim_set_hl(0, "StatusNORMAL", { fg = "#000000", bg = "#8efc20" })
+    vim.api.nvim_set_hl(0, "StatusINSERT", { fg = "#000000", bg = "#20fcfc" })
+    vim.api.nvim_set_hl(0, "StatusMain",   { fg = "#ffffff", bg = "#333333" })
+<
+
+==============================================================================
+
+vim:tw=78:ft=help:norl:
