@@ -21,7 +21,7 @@ function M.mode()
 end
 
 function M.file()
-    return vim.fn.expand("%:t") .. (vim.bo.modified and " [+]" or "")
+    return "%f%m%r"
 end
 
 function M.filetype()
